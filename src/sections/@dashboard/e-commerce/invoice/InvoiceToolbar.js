@@ -9,7 +9,7 @@ import { LoadingButton } from '@mui/lab';
 import Iconify from '../../../../components/Iconify';
 import { DialogAnimate } from '../../../../components/animate';
 //
-import InvoicePDF from './InvoicePDF';
+// import InvoicePDF from './InvoicePDF';
 
 // ----------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ export default function InvoiceToolbar({ invoice, ...other }) {
         Preview
       </Button>
 
-      <PDFDownloadLink
+      {/* <PDFDownloadLink
         document={<InvoicePDF invoice={invoice} />}
         fileName={`INVOICE-${invoice.id}`}
         style={{ textDecoration: 'none' }}
@@ -70,7 +70,7 @@ export default function InvoiceToolbar({ invoice, ...other }) {
             Download
           </LoadingButton>
         )}
-      </PDFDownloadLink>
+      </PDFDownloadLink> */}
 
       <DialogAnimate fullScreen open={openPDF}>
         <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -87,11 +87,11 @@ export default function InvoiceToolbar({ invoice, ...other }) {
               </IconButton>
             </Tooltip>
           </DialogActions>
-          <Box sx={{ flexGrow: 1, height: '100%', overflow: 'hidden' }}>
+          {/* <Box sx={{ flexGrow: 1, height: '100%', overflow: 'hidden' }}>
             <PDFViewer width="100%" height="100%" style={{ border: 'none' }}>
               <InvoicePDF invoice={invoice} />
             </PDFViewer>
-          </Box>
+          </Box> */}
         </Box>
       </DialogAnimate>
     </RootStyle>

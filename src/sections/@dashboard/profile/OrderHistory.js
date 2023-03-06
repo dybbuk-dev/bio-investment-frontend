@@ -4,6 +4,7 @@ import { Box, Button, Card, CardContent, CardHeader, Checkbox, Stack, Tab, Table
 import { visuallyHidden } from '@mui/utils';
 import useLocales from "../../../hooks/useLocales";
 import { fShortDate } from "../../../utils/formatTime";
+import { fNumber } from "../../../utils/formatNumber";
 
 EnhancedTableHead.propTypes = {
     numSelected: PropTypes.number.isRequired,
@@ -181,7 +182,7 @@ export default function OrderHistory() {
                             <Tab value={"deposit"} label={translate('words.deposit')} />
                             <Tab value={"withdraw"} label={translate('words.withdraw')} />
                         </Tabs>
-                        <Stack direction="row" gap={1} pt={2} alignItems={'center'}>
+                        <Stack direction="row" gap={1}  alignItems={'center'}>
                             <Typography variant={'body2'}>
                                 {translate('words.order-type')}
                             </Typography>
@@ -226,7 +227,7 @@ export default function OrderHistory() {
                                                     >
                                                         {row.coin}
                                                     </TableCell>
-                                                    <TableCell align="right">{row.amount}</TableCell>
+                                                    <TableCell align="right">{fNumber(row.amount)}</TableCell>
                                                     <TableCell >{row.payment}</TableCell>
                                                     <TableCell >{fShortDate(row.date) }</TableCell>
                                                 </TableRow>
