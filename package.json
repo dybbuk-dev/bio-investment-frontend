@@ -4,6 +4,11 @@
   "version": "3.0.0",
   "description": "bio investment web application using react",
   "private": true,
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x",
+    "yarn": "1.x"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

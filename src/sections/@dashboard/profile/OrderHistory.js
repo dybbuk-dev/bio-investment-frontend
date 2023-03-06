@@ -228,7 +228,7 @@ export default function OrderHistory() {
                                                     >
                                                         {row.coin}
                                                     </TableCell>
-                                                    <TableCell align="right">{row.}</TableCell>
+                                                    <TableCell align="right">{row.amount}</TableCell>
                                                     <TableCell align="right">{row.fat}</TableCell>
                                                     <TableCell align="right">{row.carbs}</TableCell>
                                                     <TableCell align="right">{row.protein}</TableCell>

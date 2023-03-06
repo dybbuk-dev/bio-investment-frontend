@@ -77,6 +77,14 @@
     "re-pwd":"Retype Password",
     "order-history":"Order History",
     "order-history-desc":"You can view all your deposit and withdrawal orders."
+  },
+  "order-history":{
+    "table":{
+      "coin":"Coin",
+      "amount":"Amount",
+      "payment":"Form of Payment",
+      "date":"Date"
+    }
   }
 }
 
