@@ -1,19 +1,48 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import { Button, Card, CardContent, CardHeader, Checkbox, Stack, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, Tabs, Typography } from "@mui/material";
-
+import { Box, Button, Card, CardContent, CardHeader, Checkbox, Stack, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel, Tabs, Typography } from "@mui/material";
+import { visuallyHidden } from '@mui/utils';
 import useLocales from "../../../hooks/useLocales";
 
 EnhancedTableHead.propTypes = {
     numSelected: PropTypes.number.isRequired,
     onRequestSort: PropTypes.func.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
+    onSelectAllClick: PropTypes.func,
     order: PropTypes.oneOf(['asc', 'desc']).isRequired,
     orderBy: PropTypes.string.isRequired,
     rowCount: PropTypes.number.isRequired,
     checkbox: PropTypes.bool,
 };
 function EnhancedTableHead(props) {
+    const { translate } = useLocales();
+
+    const headCells = [
+        {
+            id: 'coin',
+            numeric: false,
+            disablePadding: true,
+            label: translate('order-history.table.coin'),
+        },
+        {
+            id: 'amount',
+            numeric: true,
+            disablePadding: false,
+            label: translate('order-history.table.amount'),
+        },
+        {
+            id: 'payment',
+            numeric: false,
+            disablePadding: false,
+            label: translate('order-history.table.payment'),
+        },
+        {
+            id: 'date',
+            numeric: false,
+            disablePadding: false,
+            label: translate('order-history.table.date'),
+        },
+
+    ];
     const { checkbox, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
         props;
     const createSortHandler = (property) => (event) => {
@@ -66,91 +95,81 @@ function EnhancedTableHead(props) {
 
 function createData(coin, amount, payment, date) {
     return {
-      coin, amount, payment, date
+        coin, amount, payment, date
     };
-  }
-  
-  const rows = [
-   createData('Euro()',2400,'Visa',new Date()),
-   createData('Dollar()',2400,'Master Card',new Date()),
-   createData('Real()',2400,'Visa',new Date()),
-   createData('Real()',2400,'Visa',new Date()),
-   createData('Real()',2400,'Pix',new Date()),
-   createData('Real()',2400,'Visa',new Date()),
-   createData('Real()',2400,'Visa',new Date()),
-   createData('Real()',2400,'Visa',new Date()),
-   createData('Real()',2400,'Visa',new Date()),
-  ];
-  
-  function descendingComparator(a, b, orderBy) {
+}
+
+const rows = [
+    createData('Euro()', 2400, 'Visa', new Date()),
+    createData('Dollar()', 2400, 'Master Card', new Date()),
+    createData('Real()', 2400, 'Visa', new Date()),
+    createData('Real()', 2400, 'Visa', new Date()),
+    createData('Real()', 2400, 'Pix', new Date()),
+    createData('Real()', 2400, 'Visa', new Date()),
+    createData('Real()', 2400, 'Visa', new Date()),
+    createData('Real()', 2400, 'Visa', new Date()),
+    createData('Real()', 2400, 'Visa', new Date()),
+];
+
+function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
-      return -1;
+        return -1;
     }
     if (b[orderBy] > a[orderBy]) {
-      return 1;
+        return 1;
     }
     return 0;
-  }
-  
-  function getComparator(order, orderBy) {
+}
+
+function getComparator(order, orderBy) {
     return order === 'desc'
-      ? (a, b) => descendingComparator(a, b, orderBy)
-      : (a, b) => -descendingComparator(a, b, orderBy);
-  }
-  
- 
-  function stableSort(array, comparator) {
+        ? (a, b) => descendingComparator(a, b, orderBy)
+        : (a, b) => -descendingComparator(a, b, orderBy);
+}
+
+
+function stableSort(array, comparator) {
     const stabilizedThis = array.map((el, index) => [el, index]);
     stabilizedThis.sort((a, b) => {
-      const order = comparator(a[0], b[0]);
-      if (order !== 0) {
-        return order;
-      }
-      return a[1] - b[1];
+        const order = comparator(a[0], b[0]);
+        if (order !== 0) {
+            return order;
+        }
+        return a[1] - b[1];
     });
     return stabilizedThis.map((el) => el[0]);
-  }
-  
-  const headCells = [
-    {
-      id: 'name',
-      numeric: false,
-      disablePadding: true,
-      label: 'Dessert (100g serving)',
-    },
-    {
-      id: 'calories',
-      numeric: true,
-      disablePadding: false,
-      label: 'Calories',
-    },
-    {
-      id: 'fat',
-      numeric: true,
-      disablePadding: false,
-      label: 'Fat (g)',
-    },
-    {
-      id: 'carbs',
-      numeric: true,
-      disablePadding: false,
-      label: 'Carbs (g)',
-    },
-    {
-      id: 'protein',
-      numeric: true,
-      disablePadding: false,
-      label: 'Protein (g)',
-    },
-  ];
+}
+
 
 
 export default function OrderHistory() {
-    const { translate } = useLocales();
     const [selectedTab, setSelectedTab] = useState('deposit');
+    const [order, setOrder] = useState('asc');
+    const [orderBy, setOrderBy] = useState('calories');
+    const [selected, setSelected] = useState([]);
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const { translate } = useLocales();
     const onChange = (evt, newValue) => {
         setSelectedTab(newValue);
     }
+    const handleRequestSort = (event, property) => {
+        const isAsc = orderBy === property && order === 'asc';
+        setOrder(isAsc ? 'desc' : 'asc');
+        setOrderBy(property);
+    };
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
+    const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
     return (
         <Stack>
             <Card>
@@ -175,13 +194,13 @@ export default function OrderHistory() {
                             <Table
                                 sx={{ minWidth: 750 }}
                                 aria-labelledby="tableTitle"
-                                size={dense ? 'small' : 'medium'}
+
                             >
                                 <EnhancedTableHead
                                     numSelected={selected.length}
                                     order={order}
                                     orderBy={orderBy}
-                                    onSelectAllClick={handleSelectAllClick}
+
                                     onRequestSort={handleRequestSort}
                                     rowCount={rows.length}
                                     checkbox={false}
@@ -190,37 +209,26 @@ export default function OrderHistory() {
                                     {stableSort(rows, getComparator(order, orderBy))
                                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                         .map((row, index) => {
-                                            const isItemSelected = isSelected(row.name);
+                                            
                                             const labelId = `enhanced-table-checkbox-${index}`;
 
                                             return (
                                                 <TableRow
                                                     hover
-                                                    onClick={(event) => handleClick(event, row.name)}
-                                                    role="checkbox"
-                                                    aria-checked={isItemSelected}
                                                     tabIndex={-1}
                                                     key={row.name}
-                                                    selected={isItemSelected}
+                                                 
                                                 >
-                                                    <TableCell padding="checkbox">
-                                                        <Checkbox
-                                                            color="primary"
-                                                            checked={isItemSelected}
-                                                            inputProps={{
-                                                                'aria-labelledby': labelId,
-                                                            }}
-                                                        />
-                                                    </TableCell>
+                                                     
                                                     <TableCell
                                                         component="th"
                                                         id={labelId}
                                                         scope="row"
                                                         padding="none"
                                                     >
-                                                        {row.name}
+                                                        {row.coin}
                                                     </TableCell>
-                                                    <TableCell align="right">{row.calories}</TableCell>
+                                                    <TableCell align="right">{row.}</TableCell>
                                                     <TableCell align="right">{row.fat}</TableCell>
                                                     <TableCell align="right">{row.carbs}</TableCell>
                                                     <TableCell align="right">{row.protein}</TableCell>
@@ -230,10 +238,10 @@ export default function OrderHistory() {
                                     {emptyRows > 0 && (
                                         <TableRow
                                             style={{
-                                                height: (dense ? 33 : 53) * emptyRows,
+                                                height: 33 * emptyRows,
                                             }}
                                         >
-                                            <TableCell colSpan={6} />
+                                            <TableCell colSpan={4} />
                                         </TableRow>
                                     )}
                                 </TableBody>
