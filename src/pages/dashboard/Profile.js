@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate } from "react-router-dom";
@@ -21,14 +21,20 @@ import useSettings from '../../hooks/useSettings';
 import Page from '../../components/Page';
 // sections
 import {
-  PersonalInformation
+  PersonalInformation,
+  Apperence,
+  ChangePassword,
+  ChangeNotification,
+  ChangeTimezone,
+  TermAndCondition,
+  OrderHistory,
+  LimitInvest
 } from '../../sections/@dashboard/profile';
 import useResponsive from '../../hooks/useResponsive';
 import Scrollbar from '../../components/Scrollbar';
 import { NavListRoot } from '../../components/nav-section/vertical/NavList';
-import Apperence from '../../sections/@dashboard/profile/Apperence';
-import ChangePassword from '../../sections/@dashboard/profile/ChangePassword';
-import OrderHistory from '../../sections/@dashboard/profile/OrderHistory';
+
+
 
 
 // ----------------------------------------------------------------------
@@ -50,9 +56,11 @@ export default function Profile() {
     { value: 'timezone', path: '/dashboard/profile/timezone', icon: <PublicOutlinedIcon />, title: 'Time Zone' },
     { value: 'notification', path: '/dashboard/profile/notification', icon: <NotificationsOutlinedIcon />, title: 'Notification' },
     { value: 'TAC', path: '/dashboard/profile/TAC', icon: <ArticleOutlinedIcon />, title: 'Terms and conditions' },
+    { value: 'invest-agree', path: '/dashboard/profile/invest-agree', icon: <Icon icon = "arcticons:timelimit"/>, title: 'Investment Limit' },
+    { value: 'account-access', path: '/dashboard/profile/account-access', icon: <Icon icon = "mdi:account-security-outline"/>, title: 'Account Access' },
   ]
 
-  
+
   return (
     <Page title="Profile">
       <Container maxWidth={themeStretch ? false : 'xl'} sx={{ padding: 2 }}>
@@ -72,14 +80,14 @@ export default function Profile() {
             {
               !isTablet &&
               <Tabs scrollButtons="auto"
-                onChange={(evt, newValue) => { 
-                  setValue(newValue); 
-                  navigate(ProfileMenus.filter((m)=>m.value === newValue)[0].path);
+                onChange={(evt, newValue) => {
+                  setValue(newValue);
+                  navigate(ProfileMenus.filter((m) => m.value === newValue)[0].path);
                 }} value={page} variant="scrollable"
               >
                 {
                   ProfileMenus.map((profile, index) => (
-                    <Tab  value={profile.value} key={index} label={profile.title} />
+                    <Tab value={profile.value} key={index} label={profile.title} />
                   ))
                 }
               </Tabs>
@@ -100,9 +108,12 @@ export default function Profile() {
               <OrderHistory />
             }
             {page === "notification" &&
-              <PersonalInformation />
+              <ChangeNotification />
             }
-            
+            {page === "TAC" && <TermAndCondition />}
+            {page === "invest-agree" && <LimitInvest />}
+            {page === "account-access" && <TermAndCondition />}
+
           </Box>
         </Stack>
 

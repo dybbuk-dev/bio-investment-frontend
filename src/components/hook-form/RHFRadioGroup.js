@@ -26,7 +26,9 @@ export default function RHFRadioGroup({ name, options, getOptionLabel, ...other 
               <FormControlLabel
                 key={option}
                 value={option}
-                control={<Radio />}
+                control={
+                  <Radio />
+                }
                 label={getOptionLabel?.length ? getOptionLabel[index] : option}
               />
             ))}

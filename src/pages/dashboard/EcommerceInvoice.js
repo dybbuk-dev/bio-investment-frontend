@@ -30,7 +30,8 @@ import Image from '../../components/Image';
 import Scrollbar from '../../components/Scrollbar';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 // sections
-import { InvoiceToolbar } from '../../sections/@dashboard/e-commerce/invoice';
+
+// import { InvoiceToolbar } from '../../sections/@dashboard/e-commerce/invoice';
 
 // ----------------------------------------------------------------------
 
@@ -65,7 +66,7 @@ export default function EcommerceInvoice() {
           ]}
         />
 
-        <InvoiceToolbar invoice={_invoice} />
+        {/* <InvoiceToolbar invoice={_invoice} /> */}
 
         <Card sx={{ pt: 5, px: 5 }}>
           <Grid container>
