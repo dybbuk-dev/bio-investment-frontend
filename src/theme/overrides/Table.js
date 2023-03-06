@@ -21,7 +21,7 @@ export default function Table(theme) {
     //     },
     //     head: {
     //       color: theme.palette.text.secondary,
-    //       // backgroundColor: theme.palette.background.neutral,
+    //       backgroundColor: theme.palette.background.neutral,
     //       '&:first-of-type': {
     //         paddingLeft: theme.spacing(3),
     //         borderTopLeftRadius: theme.shape.borderRadius,

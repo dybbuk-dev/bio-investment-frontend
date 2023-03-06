@@ -191,7 +191,7 @@ export default function OrderHistory() {
                         </Stack>
                     </Stack>
                     <Stack >
-                        <TableContainer sx = {{padding:2,borderTopLeftRadius:1, borderTopRightRadius:1, borderWidth:'1px', borderStyle:'solid', borderColor:'divider'}}>
+                        <TableContainer sx = {{padding:2,borderTopLeftRadius:'8px', borderTopRightRadius:'8px', borderWidth:'1px', borderStyle:'solid', borderColor:'divider'}}>
                             <Table
                                 sx={{ minWidth: 650, }}
                                 aria-labelledby="tableTitle"
