@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Card, CardContent, CardHeader, Checkbox, Stack, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel, Tabs, Typography } from "@mui/material";
 import { visuallyHidden } from '@mui/utils';
 import useLocales from "../../../hooks/useLocales";
+import { fShortDate } from "../../../utils/formatTime";
 
 EnhancedTableHead.propTypes = {
     numSelected: PropTypes.number.isRequired,
@@ -210,8 +211,6 @@ export default function OrderHistory() {
                                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                         .map((row, index) => {
                                             
-                                            const labelId = `enhanced-table-checkbox-${index}`;
-
                                             return (
                                                 <TableRow
                                                     hover
@@ -222,16 +221,14 @@ export default function OrderHistory() {
                                                      
                                                     <TableCell
                                                         component="th"
-                                                        id={labelId}
                                                         scope="row"
                                                         padding="none"
                                                     >
                                                         {row.coin}
                                                     </TableCell>
                                                     <TableCell align="right">{row.amount}</TableCell>
-                                                    <TableCell align="right">{row.fat}</TableCell>
-                                                    <TableCell align="right">{row.carbs}</TableCell>
-                                                    <TableCell align="right">{row.protein}</TableCell>
+                                                    <TableCell >{row.payment}</TableCell>
+                                                    <TableCell >{fShortDate(row.date) }</TableCell>
                                                 </TableRow>
                                             );
                                         })}
