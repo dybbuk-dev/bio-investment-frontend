@@ -176,7 +176,7 @@ export default function OrderHistory() {
             <Card>
                 <CardHeader title={translate('profile.order-history')} subheader={translate('profile.order-history-desc')} />
                 <CardContent>
-                    <Stack sx={{ borderBottomWidth: 1, borderBottomColor: 'divider', borderBottomStyle: 'solid' }} direction={{ xs: 'column', sm: 'row' }} justifyContent={'space-between'}>
+                    <Stack sx={{ borderBottomWidth: 1, borderBottomColor: 'divider', borderBottomStyle: 'solid' }} mb={2} direction={{ xs: 'column', sm: 'row' }} justifyContent={'space-between'}>
                         <Tabs value={selectedTab} onChange={onChange}>
                             <Tab value={"deposit"} label={translate('words.deposit')} />
                             <Tab value={"withdraw"} label={translate('words.withdraw')} />
@@ -190,10 +190,10 @@ export default function OrderHistory() {
 
                         </Stack>
                     </Stack>
-                    <Stack>
-                        <TableContainer>
+                    <Stack >
+                        <TableContainer sx = {{padding:2,borderTopLeftRadius:1, borderTopRightRadius:1, borderWidth:'1px', borderStyle:'solid', borderColor:'divider'}}>
                             <Table
-                                sx={{ minWidth: 750 }}
+                                sx={{ minWidth: 650, }}
                                 aria-labelledby="tableTitle"
 
                             >
@@ -215,7 +215,7 @@ export default function OrderHistory() {
                                                 <TableRow
                                                     hover
                                                     tabIndex={-1}
-                                                    key={row.name}
+                                                    key={index}
                                                  
                                                 >
                                                      
