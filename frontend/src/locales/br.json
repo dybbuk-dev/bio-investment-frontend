@@ -1,0 +1,64 @@
+{
+  "words":{
+    "ptp-token":"Participation Token",
+    "equi-token":"Equity Token",
+    "utl-token":"Utility Token",
+    "all":"All",
+    "min":"Minimum",
+    "max":"Maximum",
+    "fullname":"Nome Completo",
+    "email":"E-mail",
+    "cpf":"CPF",
+    "cnpj":"CNPJ",
+    "password":"Senha",
+    "faq-title":"FAQs 📣",
+    "continue":"Continue",
+    "next":"Next",
+    "back-route":"Back to previous",
+    "phone":"Phonenumber",
+    "login":"Login"
+  },
+  "token":{
+    "act":"Acquired tokens",
+    "min":"Min Price",
+    "volume":"Volume"
+  },
+  "market":{
+    "information":"Information",
+    "acc-fund":"Accumulated Funding",
+    "buyer":"Buyers",
+    "min-purchase":"Minimum Purchase",
+    "ann-quota":"Annual Quota",
+    "token-dur":"Token Duration",
+    "token-cat":"Token Category",
+    "mon-quota":"Equivalence per month",
+    "simulation-desc":"Do a simulation 📊",
+    "simulation-title":"Select the amount to be invested",
+    "sim-mon-title":"Estimated amount receivable monthly",
+    "sim-ann-title":"Estimated amount receivable annually",
+    "project-desc":"Project details 🚀",
+    "about-project":"About Project",
+    "about-token":"About Token",
+    "differentials":"Differentials",
+    "about-issuer":"About Issuer"
+  },
+  "trading":{
+    "title":"Trading",
+    "subtitle":"Trade your tokens"
+  },
+  "register":{
+    "natural-mode":"Pessoa física",
+    "business-mode":"Fundo de investimento ",
+    "legal-mode":"Pessoa jurídica",
+    "social":"Razão social",
+    "investment-fund":"Investment Fund",
+    "natural-mode-title":"Cadastro Pessoa Física",
+    "business-mode-title":"Register Investment Fund",
+    "natural-mode-description":"Faça parte da maior revolução de investimentos do mundo",
+    "legal-mode-title":"Register Legal Person",
+    "agree-terms":"I agree with the platform's Terms of Use and Privacy Policy.",
+    "already-user":"Have you already account? "
+    
+  }
+}
+
