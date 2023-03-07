@@ -6,7 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import useSettings from '../../hooks/useSettings';
 // components
 import Page from '../../components/Page';
-import { MyTokenCarousel,  MyTokenList, MyInvestOverview } from '../../sections/@dashboard/my-investment';
+import { MyTokenCarousel,  MyInvestmentHistory, MyInvestOverview } from '../../sections/@dashboard/my-investment';
 import {tokens} from '../../_mock/_tokens';
 
 export default function MyInvestment() {
@@ -19,10 +19,8 @@ export default function MyInvestment() {
                     <MyInvestOverview />
                     <MyTokenCarousel tokens={tokens} />
                     <Divider sx = {{mb:2}}/>
-                  
+                    <MyInvestmentHistory />
                 </Stack>
-
-
             </Container>
         </Page>
     )
