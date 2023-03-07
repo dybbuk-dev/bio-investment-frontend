@@ -1,7 +1,7 @@
 // components
 import Iconify from '../components/Iconify';
 //
-import _mock from './_mock';
+import _mock from './_mocks';
 
 // ----------------------------------------------------------------------
 

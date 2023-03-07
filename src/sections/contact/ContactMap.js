@@ -1,4 +1,4 @@
-import MapGL from 'react-map-gl';
+// import MapGL from 'react-map-gl';
 import { useState } from 'react';
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
@@ -9,7 +9,7 @@ import { _mapContact } from '../../_mock';
 import { MAPBOX_API } from '../../config';
 // components
 import Iconify from '../../components/Iconify';
-import { MapControlPopup, MapControlMarker, MapControlScale, MapControlNavigation } from '../../components/map';
+// import { MapControlPopup, MapControlMarker, MapControlScale, MapControlNavigation } from '../../components/map';
 
 // ----------------------------------------------------------------------
 
@@ -38,7 +38,8 @@ export default function ContactMap() {
 
   return (
     <RootStyle>
-      <MapGL
+      Contact Map
+      {/* <MapGL
         {...viewport}
         onViewportChange={setViewport}
         mapStyle={`mapbox://styles/mapbox/${isLight ? 'light' : 'dark'}-v10`}
@@ -82,7 +83,7 @@ export default function ContactMap() {
             </Typography>
           </MapControlPopup>
         )}
-      </MapGL>
+      </MapGL> */}
     </RootStyle>
   );
 }

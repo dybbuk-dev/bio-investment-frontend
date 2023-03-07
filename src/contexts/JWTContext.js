@@ -70,11 +70,32 @@ function AuthProvider({ children }) {
     const initialize = async () => {
       try {
         const accessToken = window.localStorage.getItem('accessToken');
-
+       
         if (accessToken && isValidToken(accessToken)) {
           setSession(accessToken);
 
-          const response = await axios.get('/api/account/my-account');
+          // const response = await axios.get('/api/account/my-account');
+          const response = {
+            data: {
+              accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ODY0YzcxNy01ODdkLTQ3MmEtOTI5YS04ZTVmMjk4MDI0ZGEtMCIsImlhdCI6MTY3ODE3NTE3NSwiZXhwIjoxNjc4NDM0Mzc1fQ.A7uapNgwyoCOR-JdLBYvq7Kq4Wvx1NL7owjVfLZXh3o",
+              user: {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "displayName": "Jaydon Frankie",
+                "email": 'usermail@bio.com',
+                "password": "demo1234",
+                "photoURL": "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_default.jpg",
+                "phoneNumber": "+40 777666555",
+                "country": "United States",
+                "address": "90210 Broadway Blvd",
+                "state": "California",
+                "city": "San Francisco",
+                "zipCode": "94116",
+                "about": "Praesent turpis. Phasellus viverra nulla ut metus varius laoreet. Phasellus tempus.",
+                "role": "admin",
+                "isPublic": true
+              }
+            }
+          }
           const { user } = response.data;
 
           dispatch({
@@ -109,10 +130,32 @@ function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const response = await axios.post('/api/account/login', {
-      email,
-      password,
-    });
+
+    // const response = await axios.post('/api/account/login', {
+    //   email,
+    //   password,
+    // });
+    const response = {
+      data: {
+        accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ODY0YzcxNy01ODdkLTQ3MmEtOTI5YS04ZTVmMjk4MDI0ZGEtMCIsImlhdCI6MTY3ODE3NTE3NSwiZXhwIjoxNjc4NDM0Mzc1fQ.A7uapNgwyoCOR-JdLBYvq7Kq4Wvx1NL7owjVfLZXh3o",
+        user: {
+          "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+          "displayName": "Jaydon Frankie",
+          "email": email,
+          "password": "demo1234",
+          "photoURL": "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_default.jpg",
+          "phoneNumber": "+40 777666555",
+          "country": "United States",
+          "address": "90210 Broadway Blvd",
+          "state": "California",
+          "city": "San Francisco",
+          "zipCode": "94116",
+          "about": "Praesent turpis. Phasellus viverra nulla ut metus varius laoreet. Phasellus tempus.",
+          "role": "admin",
+          "isPublic": true
+        }
+      }
+    }
     const { accessToken, user } = response.data;
 
     setSession(accessToken);

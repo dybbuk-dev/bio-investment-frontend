@@ -170,7 +170,7 @@ export default function OrderHistory() {
     };
 
     const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
         <Stack>
@@ -182,7 +182,7 @@ export default function OrderHistory() {
                             <Tab value={"deposit"} label={translate('words.deposit')} />
                             <Tab value={"withdraw"} label={translate('words.withdraw')} />
                         </Tabs>
-                        <Stack direction="row" gap={1}  alignItems={'center'}>
+                        <Stack direction="row" gap={1} alignItems={'center'}>
                             <Typography variant={'body2'}>
                                 {translate('words.order-type')}
                             </Typography>
@@ -192,7 +192,7 @@ export default function OrderHistory() {
                         </Stack>
                     </Stack>
                     <Stack >
-                        <TableContainer sx = {{padding:2,borderTopLeftRadius:'8px', borderTopRightRadius:'8px', borderWidth:'1px', borderStyle:'solid', borderColor:'divider'}}>
+                        <TableContainer sx={{ padding: 2, borderTopLeftRadius: '8px', borderTopRightRadius: '8px', borderWidth: '1px', borderStyle: 'solid', borderColor: 'divider' }}>
                             <Table
                                 sx={{ minWidth: 500, }}
                                 aria-labelledby="tableTitle"
@@ -210,29 +210,27 @@ export default function OrderHistory() {
                                 <TableBody>
                                     {stableSort(rows, getComparator(order, orderBy))
                                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                        .map((row, index) => {
-                                            
-                                            return (
-                                                <TableRow
-                                                    hover
-                                                    tabIndex={-1}
-                                                    key={index}
-                                                 
+                                        .map((row, index) => (
+                                            <TableRow
+                                                hover
+                                                tabIndex={-1}
+                                                key={index}
+
+                                            >
+
+                                                <TableCell
+                                                    component="th"
+                                                    scope="row"
+                                                    padding="none"
                                                 >
-                                                     
-                                                    <TableCell
-                                                        component="th"
-                                                        scope="row"
-                                                        padding="none"
-                                                    >
-                                                        {row.coin}
-                                                    </TableCell>
-                                                    <TableCell align="right">{fNumber(row.amount)}</TableCell>
-                                                    <TableCell >{row.payment}</TableCell>
-                                                    <TableCell >{fShortDate(row.date) }</TableCell>
-                                                </TableRow>
-                                            );
-                                        })}
+                                                    {row.coin}
+                                                </TableCell>
+                                                <TableCell align="right">{fNumber(row.amount)}</TableCell>
+                                                <TableCell >{row.payment}</TableCell>
+                                                <TableCell >{fShortDate(row.date)}</TableCell>
+                                            </TableRow>
+                                        )
+                                        )}
                                     {emptyRows > 0 && (
                                         <TableRow
                                             style={{

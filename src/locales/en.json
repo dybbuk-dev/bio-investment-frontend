@@ -23,7 +23,33 @@
     "withdraw":"Withdraw",
     "order-type":"Order Type",
     "fiduciary":"Fiduciary",
-    "crypto":"Crypto Currency"
+    "crypto":"Crypto Currency",
+    "choose":"Choose ",
+    "bank":"Over Bank"
+    
+  },
+  "transfer":{
+    "withdraw-mode":"Withdraw Type",
+    "no-withdraw-title":"No withdrawal amount yet?",
+    "deposit-mode":"Deposit Type",
+    "withdraw-crypto-title":"Withdraw Crypto",
+    "coin":"Coin",
+    "choose-coin":"Choose coin",
+    "network":"Choose Network",
+    "url":"Withdraw Address",
+    "amount":"Amount",
+    "witdraw-summary":"Witdraw Summary",
+    "balance":"Balance",
+    "fee":"Fee",
+    "min":"Minimum",
+    "you-get":"You will get",
+    "withdraw":"To Witdraw",
+    "name":"Assert",
+    "quantity":"Quantity",
+    "total":"Total",
+    "date":"Date",
+    "hour":"Hour",
+    "status":"Status"
   },
   "token":{
     "act":"Acquired tokens",

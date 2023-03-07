@@ -6,4 +6,4 @@ export { default as TermAndCondition } from './TermAndCondition';
 export { default as ChangePassword } from './ChangePassword';
 export { default as OrderHistory } from './OrderHistory';
 export { default as LimitInvest } from './LimitInvest';
-
+export { default as AccountAccess } from './AccountAccess';

@@ -6,7 +6,7 @@
   },
   "include": [
     "src/**/*"
-, "src/sections/@dashboard/profile/.js"  ],
+  ],
   "exclude": [
     "node_modules",
     "**/node_modules/*"

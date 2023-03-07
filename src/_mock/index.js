@@ -1,4 +1,4 @@
-import _mock from './_mock';
+import _mocks from './_mocks';
 
 // ----------------------------------------------------------------------
 
@@ -13,4 +13,4 @@ export * from './_analytics';
 export * from './_countries';
 export * from './_top100Films';
 
-export default _mock;
+export default _mocks;

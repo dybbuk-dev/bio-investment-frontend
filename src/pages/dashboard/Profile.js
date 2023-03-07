@@ -27,6 +27,7 @@ import {
   ChangeNotification,
   ChangeTimezone,
   TermAndCondition,
+  AccountAccess,
   OrderHistory,
   LimitInvest
 } from '../../sections/@dashboard/profile';
@@ -112,7 +113,7 @@ export default function Profile() {
             }
             {page === "TAC" && <TermAndCondition />}
             {page === "invest-agree" && <LimitInvest />}
-            {page === "account-access" && <TermAndCondition />}
+            {page === "account-access" && <AccountAccess />}
 
           </Box>
         </Stack>

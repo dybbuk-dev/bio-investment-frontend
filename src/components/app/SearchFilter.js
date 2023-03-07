@@ -48,7 +48,7 @@ export default function SearchFilter({variants}) {
 
   return (
    
-      <FormControl sx={{ mx: 1, width: 240 }}>
+      <FormControl sx={{width: 240 }}>
         <InputLabel sx ={{display:'flex', alignItems:'center', backgroundColor:'background.paper'}}>
             <FilterAltOutlinedIcon />
             Group By

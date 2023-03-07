@@ -1,6 +1,6 @@
 import { noCase } from 'change-case';
 // _mock
-import _mock from './_mock';
+import _mock from './_mocks';
 import { randomNumberRange, randomInArray } from './funcs';
 
 // ----------------------------------------------------------------------

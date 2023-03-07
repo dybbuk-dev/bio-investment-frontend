@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 import ReactApexChart from 'react-apexcharts';
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
-import { Card, CardHeader } from '@mui/material';
+import { Card, CardContent, CardHeader, Stack } from '@mui/material';
 // utils
 import { fNumber } from '../../../../utils/formatNumber';
 //
@@ -45,7 +45,7 @@ export default function AppCurrentPortfolio() {
     ],
     labels: ['Token-1', 'Token-2', 'Token-3', 'Token-4'],
     stroke: { colors: [theme.palette.background.paper] },
-    legend: { floating: true, horizontalAlign: 'center' },
+    legend: { position: 'bottom', horizontalAlign: 'center' },
     tooltip: {
       fillSeriesColor: false,
       y: {
@@ -78,9 +78,13 @@ export default function AppCurrentPortfolio() {
   return (
     <Card>
       <CardHeader title="Current Portfolio" />
-      <ChartWrapperStyle dir="ltr">
-        <ReactApexChart type="donut" series={CHART_DATA} options={chartOptions} height={280} />
-      </ChartWrapperStyle>
+      <CardContent>
+        <Stack>
+          <ReactApexChart type="donut" series={CHART_DATA} options={chartOptions} height={320} />
+        </Stack>
+      </CardContent>
+
+
     </Card>
   );
 }
