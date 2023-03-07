@@ -85,31 +85,14 @@ export default function BankDeposit() {
                         </Stack>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
-                        <Stack gap ={2} sx={{ backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800], borderRadius: 1 }} padding={2}>
-                            <Typography variant="h6">{translate('transfer.witdraw-summary')}</Typography>
-                            <Stack direction="row" gap={1} justifyContent={'space-between'}>
-                                <Stack>
-                                    <Typography variant="body2">{translate('transfer.balance')}</Typography>
-                                    <Typography variant="subtitle1">{fNumber(12345)}</Typography>
-                                </Stack>
-                                <Stack>
-                                    <Typography variant="body2">{translate('transfer.fee')}</Typography>
-                                    <Typography variant="subtitle1">{fNumber(0.2)}</Typography>
-                                </Stack>
-                                <Stack>
-                                    <Typography variant="body2">{translate('transfer.min')}</Typography>
-                                    <Typography variant="subtitle1">{fNumber(50)}</Typography>
-                                </Stack>
+                        <Stack gap={2} sx={{ backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800], borderRadius: 1 }} padding={2}>
+                            <Stack justifyContent={'center'} alignItems={'center'} padding = {4}>
+                                <Iconify icon="clarity:qr-code-line" sx={{ height: 148, width: 148 }} />
                             </Stack>
-                            <Paper sx={{ borderRadius: 1, padding:2, borderColor:'divider', borderWidth:1, borderStyle:'solid' }} >
-                                <Stack gap={2} justifyContent={'center'} alignItems={'center'}>
-                                    <Typography variant="body1">{translate('transfer.you-get')}</Typography>
-                                    <Typography variant="h6">{fNumber(10000)}</Typography>
-                                </Stack>
-                            </Paper>
+
                             <Divider />
                             <GradientButtonStyle >
-                                {translate('transfer.withdraw')}
+                                {translate('words.continue')}
                             </GradientButtonStyle>
                         </Stack>
                     </Grid>

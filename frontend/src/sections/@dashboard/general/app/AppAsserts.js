@@ -65,6 +65,14 @@ const portfolios = [
         image: "/icons/ic_banking.svg"
     }
 ]
+
+const ColorBarItem = ({ color, first = false, last = false, sx }) => {
+    return (
+        <Box sx={{ backgroundColor: color, borderTopLeftRadius: first && 5 || 0, borderBottomLeftRadius: first && 5 || 0, borderBottomRightRadius: last && 5 || 0, borderTopRightRadius: last && 5 || 0, height: 10,...sx }} >
+            &nbsp;
+        </Box>
+    )
+}
 export default function AppAsserts({ displayName }) {
     const theme = useTheme();
 
@@ -76,17 +84,21 @@ export default function AppAsserts({ displayName }) {
                     pl: { md: 5 },
                 }}
             >
-                <Box padding={2}>
+                <Box padding={2} >
                     <Icon icon="ic:outline-account-balance-wallet" />
                     <Typography gutterBottom variant="h4">
                         Portfolio
                     </Typography>
-
+                    <Stack direction={'row'} flexGrow={1} >
+                        <ColorBarItem  color={'#F7931A'} sx = {{width:'40%'}} first/>
+                        <ColorBarItem  color={'#9D28AC'} sx = {{width:'20%'}} />
+                        <ColorBarItem  color={'#EA1E61'}  sx = {{width:'10%'}}/>
+                        <ColorBarItem  color={'#009689'} sx = {{width:'30%'}} last/>
+                    </Stack>
                     <Typography variant="body2" sx={{ pb: { xs: 1, xl: 2 } }}>
                         R$ 1,893.00
                     </Typography>
                 </Box>
-
                 <Divider sx={{ flexGrow: 1 }} />
                 <List>
                     {

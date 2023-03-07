@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import { Box, Button, Link, Container, Typography, Stack, Card, CardContent } from '@mui/material';
  
 // routes
-import { PATH_AUTH } from '../../../routes/paths';
+import { PATH_AUTH, PATH_DASHBOARD } from '../../../routes/paths';
 
 import useLocales from '../../../hooks/useLocales';
 
@@ -43,9 +43,8 @@ export default function ChooseDepositMode({onCrypto = ()=>{}, onBank = ()=>{}}) 
     return (
         <ContentStyle>
             <Box sx={{ mx: 'auto' }}>
-
                 <Typography paragraph sx={{ textAlign: 'center', mb: 8 }} fontSize={24}>
-                    {translate('words.choose')}<b>{translate('transfer.withdraw-mode')}</b>
+                    {translate('words.choose')}<b>{translate('transfer.deposit-mode')}</b>
                 </Typography>
                 <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} sx={{ mb: 8 }} alignItems={'center'}>
                     <Card onClick={onCrypto}>
@@ -73,9 +72,9 @@ export default function ChooseDepositMode({onCrypto = ()=>{}, onBank = ()=>{}}) 
                   
                 </Stack>
                 <Typography variant="body1" sx={{ mt: 3, textAlign: 'center' }}>
-                    {translate('transfer.no-withdraw-title')}&nbsp;&nbsp;
-                    <Link variant="subtitle1" to={PATH_AUTH.login} component={RouterLink}>
-                        {translate('words.deposit')}
+                    {translate('transfer.withdraw-title')}&nbsp;&nbsp;
+                    <Link variant="subtitle1" to={PATH_DASHBOARD.transfer.withdraw} component={RouterLink}>
+                        {translate('words.withdraw')}
                     </Link>
                 </Typography>
             </Box>

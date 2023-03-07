@@ -36,6 +36,7 @@ const navConfig = [
       { title: 'invite', path: PATH_DASHBOARD.general.link, icon: ICONS.gift },
       { title: 'withdraw', path: PATH_DASHBOARD.transfer.withdraw, icon: ICONS.withdraw },
       { title: 'deposit', path: PATH_DASHBOARD.transfer.deposit, icon: ICONS.deposit },
+      { title: 'my invest', path: PATH_DASHBOARD.transfer.invest, icon: ICONS.booking },
 
       { title: 'profile', path: PATH_DASHBOARD.general.profile, icon: ICONS.profile },
       { title: 'token market', path: PATH_DASHBOARD.general.market, icon: ICONS.market },

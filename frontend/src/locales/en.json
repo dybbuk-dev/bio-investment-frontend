@@ -30,13 +30,14 @@
   },
   "transfer":{
     "withdraw-mode":"Withdraw Type",
+    "withdraw-title":"Do you have any withdrawal amount ?",
     "no-withdraw-title":"No withdrawal amount yet?",
     "deposit-mode":"Deposit Type",
     "withdraw-crypto-title":"Withdraw Crypto",
     "coin":"Coin",
     "choose-coin":"Choose coin",
     "network":"Choose Network",
-    "url":"Withdraw Address",
+    "url":"Wallet Address",
     "amount":"Amount",
     "witdraw-summary":"Witdraw Summary",
     "balance":"Balance",
@@ -57,8 +58,10 @@
     "account-owner":"Account Owner Document",
     "bank-error-holder":"*Withdrawals are only accepted from bank accounts with the same document as the account holder",
     "not-yet":"Don't know the registered document number?",
-    "withdraw-bank-title":"Withdraw over bank"
-
+    "withdraw-bank-title":"Withdraw over bank",
+    "deposit":"Deposit"
+    
+    
   },
   "token":{
     "act":"Acquired tokens",

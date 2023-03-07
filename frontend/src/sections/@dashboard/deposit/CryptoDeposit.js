@@ -4,6 +4,7 @@ import { fNumber } from "../../../utils/formatNumber";
 import Iconify from "../../../components/Iconify";
 import useLocales from "../../../hooks/useLocales";
 import { GradientButtonStyle } from "../../../components/AppStyledComponent";
+import CopyClipboard from "../../../components/CopyClipboard";
 
 
 export default function CryptoDeposit() {
@@ -49,7 +50,7 @@ export default function CryptoDeposit() {
     }
     return (
         <Card>
-            <CardHeader title={translate('transfer.withdraw-crypto-title')} />
+            <CardHeader title={translate('transfer.deposit-crypto-title')} />
             <CardContent>
                 <Grid container >
                     <Grid item xs={12} sm={12} md={6}>
@@ -105,41 +106,24 @@ export default function CryptoDeposit() {
                                 </Select>
                             </FormGroup>
                             <FormGroup>
-                                <FormLabel>{translate('transfer.url')}</FormLabel>
+                                <FormLabel>{translate('transfer.amount')}</FormLabel>
                                 <TextField label={''} size={'small'} />
                             </FormGroup>
                             <FormGroup>
-                                <FormLabel>{translate('transfer.amount')}</FormLabel>
-                                <TextField label={''} size={'small'} />
+                                <FormLabel>{translate('transfer.url')}</FormLabel>
+                                <CopyClipboard size="small" value="0xB8c77482e45F1F44dE1745F52C74426C631bDD52" />
                             </FormGroup>
                         </Stack>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
-                        <Stack gap ={2} sx={{ backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800], borderRadius: 1 }} padding={2}>
-                            <Typography variant="h6">{translate('transfer.witdraw-summary')}</Typography>
-                            <Stack direction="row" gap={1} justifyContent={'space-between'}>
-                                <Stack>
-                                    <Typography variant="body2">{translate('transfer.balance')}</Typography>
-                                    <Typography variant="subtitle1">{fNumber(12345)}</Typography>
-                                </Stack>
-                                <Stack>
-                                    <Typography variant="body2">{translate('transfer.fee')}</Typography>
-                                    <Typography variant="subtitle1">{fNumber(0.2)}</Typography>
-                                </Stack>
-                                <Stack>
-                                    <Typography variant="body2">{translate('transfer.min')}</Typography>
-                                    <Typography variant="subtitle1">{fNumber(50)}</Typography>
-                                </Stack>
+                        <Stack gap={2} sx={{ backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800], borderRadius: 1 }} padding={2}>
+                            <Stack justifyContent={'center'} alignItems={'center'} padding = {4}>
+                                <Iconify icon="clarity:qr-code-line" sx={{ height: 148, width: 148 }} />
                             </Stack>
-                            <Paper sx={{ borderRadius: 1, padding:2, borderColor:'divider', borderWidth:1, borderStyle:'solid' }} >
-                                <Stack gap={2} justifyContent={'center'} alignItems={'center'}>
-                                    <Typography variant="body1">{translate('transfer.you-get')}</Typography>
-                                    <Typography variant="h6">{fNumber(10000)}</Typography>
-                                </Stack>
-                            </Paper>
+
                             <Divider />
                             <GradientButtonStyle >
-                                {translate('transfer.withdraw')}
+                                {translate('transfer.deposit')}
                             </GradientButtonStyle>
                         </Stack>
                     </Grid>

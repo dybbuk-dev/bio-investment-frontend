@@ -96,8 +96,10 @@ export default function Router() {
         { path: 'trading-token', element: <TradingToken /> },
         { path: 'withdraw', element: <Withdraw /> },
         { path: 'deposit', element: <Deposit /> },
+        { path: 'my-invest', element: <MyInvestment /> },
         { path: 'banking', element: <GeneralBanking /> },
         { path: 'booking', element: <GeneralBooking /> },
+        
 
 
       ],
@@ -150,6 +152,7 @@ const GeneralApp = Loadable(lazy(() => import('../pages/dashboard/GeneralApp')))
 const GeneralReferal = Loadable(lazy(() => import('../pages/dashboard/GeneralReferal')));
 const Profile = Loadable(lazy(() => import('../pages/dashboard/Profile')));
 const BuyToken = Loadable(lazy(() => import('../pages/dashboard/BuyToken')));
+const MyInvestment = Loadable(lazy(() => import('../pages/dashboard/MyInvestment')));
 const BuyTokenDetail = Loadable(lazy(() => import('../pages/dashboard/BuyTokenDetail')));
 const TradingToken = Loadable(lazy(() => import('../pages/dashboard/TradingToken')));
 

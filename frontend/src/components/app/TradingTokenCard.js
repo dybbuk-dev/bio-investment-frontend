@@ -3,11 +3,11 @@ import useLocales from "../../hooks/useLocales";
 import { fNumber } from "../../utils/formatNumber";
 import Image from "../Image";
 
-export default function TradingTokenCard({ token, onCardAction = () => { } }) {
+export default function TradingTokenCard({ token, onCardAction = () => { }, action = null }) {
     const theme = useTheme();
-    const {translate} = useLocales();
+    const { translate } = useLocales();
     return (
-        <Card onClick={onCardAction} sx = {{cursor:'pointer'}}>
+        <Card onClick={onCardAction} sx={{ cursor: 'pointer' }}>
             <CardContent sx={{ p: 0 }}>
                 <Box >
                     <Image alt={'token-image'} src={token.image} />
@@ -25,7 +25,7 @@ export default function TradingTokenCard({ token, onCardAction = () => { } }) {
 
                 </Stack>
                 <Divider sx={{ mx: 1 }} />
-                <Stack direction="row" justifyContent={'space-between'} padding={1}>
+                <Stack direction="row" justifyContent={'space-between'} padding={1}  mb = {2}>
                     <Stack gap={1}>
                         <Typography variant={'body2'} color={'text.secondary'}>{translate('token.volume')}</Typography>
                         <Typography variant={'body2'} color={'text.secondary'}>{translate('token.min')}</Typography>
@@ -36,8 +36,9 @@ export default function TradingTokenCard({ token, onCardAction = () => { } }) {
                         <Typography variant={'body2'} color={'text.secondary'}>{fNumber(token.buyers)}</Typography>
                         <Typography variant={'body2'} color={'text.secondary'}>{fNumber(token.sold)}</Typography>
                     </Stack>
-
-
+                </Stack>
+                <Stack alignItems={'center'} justifyContent={'center'} mb = {2}>
+                    {action != null && action}
                 </Stack>
             </CardContent>
         </Card>
