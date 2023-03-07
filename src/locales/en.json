@@ -49,7 +49,8 @@
     "total":"Total",
     "date":"Date",
     "hour":"Hour",
-    "status":"Status"
+    "status":"Status",
+    "withdraw-history-title":"Your Last Withdrawal History"
   },
   "token":{
     "act":"Acquired tokens",

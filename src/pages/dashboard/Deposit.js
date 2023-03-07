@@ -8,7 +8,7 @@ import useSettings from '../../hooks/useSettings';
 // components
 import Page from '../../components/Page';
 import useLocales from '../../hooks/useLocales';
-import {BankWithdraw, BankWithdrawHistory, ChooseWithdrawMode, CryptoWithdraw, CryptoWithdrawHistory} from '../../sections/@dashboard/withdraw';
+import {ChooseWithdrawMode, CryptoWithdraw, CryptoWithdrawHistory} from '../../sections/@dashboard/withdraw';
 
 
 export default function Withdraw() {
@@ -36,12 +36,6 @@ export default function Withdraw() {
                 <Stack gap = {2}>   
                     <CryptoWithdraw />
                     <CryptoWithdrawHistory />
-                </Stack>
-                }
-                {mode === 'bank' &&
-                <Stack gap = {2}>   
-                    <BankWithdraw />
-                    <BankWithdrawHistory />
                 </Stack>
                 }
             </Container>

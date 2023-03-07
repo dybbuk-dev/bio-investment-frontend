@@ -144,9 +144,8 @@ function stableSort(array, comparator) {
 }
 
 
-export default function CryptoWithdrawHistory() {
+export default function BankWithdrawHistory() {
     const theme = useTheme();
-    const {translate} = useLocales();
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('name');
     const [selected, setSelected] = useState([]);
@@ -171,7 +170,7 @@ export default function CryptoWithdrawHistory() {
 
     return (
         <Card>
-            <CardHeader title={translate('transfer.withdraw-history-title')} />
+            <CardHeader title={''} />
             <CardContent>
                 <Stack >
                     <TableContainer sx={{ padding: 2, borderTopLeftRadius: '8px', borderTopRightRadius: '8px', borderWidth: '1px', borderStyle: 'solid', borderColor: 'divider' }}>

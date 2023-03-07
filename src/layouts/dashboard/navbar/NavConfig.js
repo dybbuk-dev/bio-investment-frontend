@@ -32,14 +32,13 @@ const navConfig = [
   {
     subheader: 'general',
     items: [
-      { title: 'app', path: PATH_DASHBOARD.general.app, icon: ICONS.dashboard },
+      { title: 'home', path: PATH_DASHBOARD.general.app, icon: ICONS.dashboard },
       { title: 'invite', path: PATH_DASHBOARD.general.link, icon: ICONS.gift },
       { title: 'withdraw', path: PATH_DASHBOARD.transfer.withdraw, icon: ICONS.withdraw },
       { title: 'profile', path: PATH_DASHBOARD.general.profile, icon: ICONS.profile },
       { title: 'token market', path: PATH_DASHBOARD.general.market, icon: ICONS.market },
       { title: 'trading', path: PATH_DASHBOARD.general.trading, icon: ICONS.trading },
-      { title: 'banking', path: PATH_DASHBOARD.general.banking, icon: ICONS.banking },
-      { title: 'booking', path: PATH_DASHBOARD.general.booking, icon: ICONS.booking },
+    
     ],
   },
 
