@@ -66,7 +66,7 @@ export default function Profile() {
     <Page title="Profile">
       <Container maxWidth={themeStretch ? false : 'xl'} sx={{ padding: 2 }}>
         <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} gap={2}>
-          <Box sx={{ width: { xs: '100%', sm: '100%', md: '240px' }, background: theme.palette.background.paper }} padding={2} borderRadius={1}>
+          <Box sx={{minWidth:{ xs: '100%', sm: '100%', md: '260px' }, width: { xs: '100%', sm: '100%', md: '260px' }, background: theme.palette.background.paper }} padding={2} borderRadius={1}>
             {isTablet &&
               <Scrollbar>
                 <List>
