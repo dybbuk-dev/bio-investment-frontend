@@ -95,6 +95,7 @@ export default function Router() {
         { path: 'buy-token/:id', element: <BuyTokenDetail /> },
         { path: 'trading-token', element: <TradingToken /> },
         { path: 'withdraw', element: <Withdraw /> },
+        { path: 'deposit', element: <Deposit /> },
         { path: 'banking', element: <GeneralBanking /> },
         { path: 'booking', element: <GeneralBooking /> },
 
@@ -158,6 +159,7 @@ const GeneralBooking = Loadable(lazy(() => import('../pages/dashboard/GeneralBoo
 
 // Transfer
 const Withdraw = Loadable(lazy(() => import('../pages/dashboard/Withdraw')));
+const Deposit = Loadable(lazy(() => import('../pages/dashboard/Deposit')));
 
 // Main
 const HomePage = Loadable(lazy(() => import('../pages/Home')));

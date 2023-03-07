@@ -8,7 +8,7 @@ import useSettings from '../../hooks/useSettings';
 // components
 import Page from '../../components/Page';
 import useLocales from '../../hooks/useLocales';
-import {ChooseWithdrawMode, CryptoWithdraw, CryptoWithdrawHistory} from '../../sections/@dashboard/withdraw';
+import { ChooseDepositMode,  CryptoDepositHistory, BankDeposit, BankDepositHistory, CryptoDeposit } from '../../sections/@dashboard/deposit';
 
 
 export default function Withdraw() {
@@ -25,18 +25,24 @@ export default function Withdraw() {
         setMode('crypto');
     }
     return (
-        <Page title="Withdraw">
+        <Page title="Deposit">
             <Container>
                 {mode === '' &&
                     <Stack gap={2} mb={2}>
-                        <ChooseWithdrawMode onBank={onBank} onCrypto={onCrypto} />
+                        <ChooseDepositMode onBank={onBank} onCrypto={onCrypto} />
                     </Stack>
                 }
                 {mode === 'crypto' &&
-                <Stack gap = {2}>   
-                    <CryptoWithdraw />
-                    <CryptoWithdrawHistory />
-                </Stack>
+                    <Stack gap={2}>
+                        <CryptoDeposit />
+                        <CryptoDepositHistory />
+                    </Stack>
+                }
+                {mode === 'bank' &&
+                    <Stack gap={2}>
+                        <BankDeposit />
+                        <BankDepositHistory />
+                    </Stack>
                 }
             </Container>
         </Page>
