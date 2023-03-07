@@ -13,7 +13,7 @@ const ICONS = {
   blog: getIcon('ic_blog'),
   cart: getIcon('ic_cart'),
   withdraw: getIcon('ic_withdraw'),
-  mail: getIcon('ic_mail'),
+  deposit: getIcon('ic_deposit'),
   user: getIcon('ic_user'),
   kanban: getIcon('ic_kanban'),
   banking: getIcon('ic_banking'),
@@ -35,6 +35,8 @@ const navConfig = [
       { title: 'home', path: PATH_DASHBOARD.general.app, icon: ICONS.dashboard },
       { title: 'invite', path: PATH_DASHBOARD.general.link, icon: ICONS.gift },
       { title: 'withdraw', path: PATH_DASHBOARD.transfer.withdraw, icon: ICONS.withdraw },
+      { title: 'deposit', path: PATH_DASHBOARD.transfer.deposit, icon: ICONS.deposit },
+
       { title: 'profile', path: PATH_DASHBOARD.general.profile, icon: ICONS.profile },
       { title: 'token market', path: PATH_DASHBOARD.general.market, icon: ICONS.market },
       { title: 'trading', path: PATH_DASHBOARD.general.trading, icon: ICONS.trading },

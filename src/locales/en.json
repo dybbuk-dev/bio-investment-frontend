@@ -50,7 +50,15 @@
     "date":"Date",
     "hour":"Hour",
     "status":"Status",
-    "withdraw-history-title":"Your Last Withdrawal History"
+    "withdraw-history-title":"Your Last Withdrawal History",
+    "bank-info":"Information of Your Bank",
+    "account-number":"Account Number",
+    "agency":"Agency",
+    "account-owner":"Account Owner Document",
+    "bank-error-holder":"*Withdrawals are only accepted from bank accounts with the same document as the account holder",
+    "not-yet":"Don't know the registered document number?",
+    "withdraw-bank-title":"Withdraw over bank"
+
   },
   "token":{
     "act":"Acquired tokens",

@@ -27,7 +27,6 @@ const CardContentStyle = styled(CardContent)(({ theme }) => ({
 const ContentStyle = styled('div')(({ theme }) => ({
 
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
     flexDirection: 'column',
@@ -43,7 +42,7 @@ export default function ChooseWithdrawMode({onCrypto = ()=>{}, onBank = ()=>{}})
      
     return (
         <ContentStyle>
-            <Box sx={{ mx: 'auto', mt: 10 }}>
+            <Box sx={{ mx: 'auto' }}>
 
                 <Typography paragraph sx={{ textAlign: 'center', mb: 8 }} fontSize={24}>
                     {translate('words.choose')}<b>{translate('transfer.withdraw-mode')}</b>

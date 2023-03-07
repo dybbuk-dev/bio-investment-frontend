@@ -45,6 +45,8 @@ export const PATH_DASHBOARD = {
   },
   transfer:{
     withdraw:path(ROOTS_DASHBOARD, '/withdraw'),
+    deposit:path(ROOTS_DASHBOARD, '/deposit'),
+
   }
   
 };

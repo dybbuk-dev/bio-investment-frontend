@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, Divider, FormGroup, FormLabel, Grid, ListItemIcon, ListItemText, MenuItem, Paper, Select, Stack, TextField, Typography, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { fNumber } from "../../../utils/formatNumber";
 import Iconify from "../../../components/Iconify";
@@ -6,46 +7,27 @@ import useLocales from "../../../hooks/useLocales";
 import { GradientButtonStyle } from "../../../components/AppStyledComponent";
 
 
+
 export default function BankWithdraw() {
     const { translate } = useLocales();
-    const [coin, setCoin] = useState('');
-    const [network, setNetwork] = useState('');
+    const [bank, setBank] = useState('');
     const theme = useTheme();
-    const availableTokens = useMemo(() => {
+    const availableBanks = useMemo(() => {
         return [
             {
-                label: 'USDT',
-                icon: 'cryptocurrency:usdt'
+                label: 'Circle Bank',
+                icon: 'mdi:bank-circle-outline'
             },
             {
-                label: 'ETH',
-                icon: 'cryptocurrency:eth'
+                label: 'JP Bank',
+                icon: 'maki:bank-jp'
             },
-            {
-                label: 'BNB',
-                icon: 'cryptocurrency:bnb'
-            }
+           
         ]
     }, []);
-    const availableNetworks = useMemo(() => {
-        return [
-            {
-                label: 'Ethereum',
-                icon: 'logos:ethereum'
-            },
-            {
-                label: 'Binance',
-                icon: 'mingcute:binance-coin-bnb-fill'
-            },
-
-        ]
-    }, []);
-    const onChangeCoin = (evt) => {
-
-        setCoin(evt.target.value);
-    }
-    const onChangeNetwork = (evt) => {
-        setNetwork(evt.target.value);
+   
+    const onChangeBank = (evt) => {
+        setBank(evt.target.value);
     }
     return (
         <Card>
@@ -55,63 +37,51 @@ export default function BankWithdraw() {
                     <Grid item xs={12} sm={12} md={6}>
                         <Stack gap={2} padding={2} sx={{ mb: 2 }}>
                             <FormGroup>
-                                <FormLabel>{translate('transfer.network')}</FormLabel>
-                                <Select size="small" value={network} onChange={onChangeNetwork} renderValue={(network) => {
+                                <FormLabel>{translate('transfer.bank-info')}</FormLabel>
+                                <Select size="small" value={bank} onChange={onChangeBank} renderValue={(bank) => {
                                     return (
                                         <MenuItem >
                                             <ListItemIcon >
-                                                <Iconify icon={network.icon} />
+                                                <Iconify icon={bank.icon} />
                                             </ListItemIcon>
-                                            <ListItemText primary={network.label} />
+                                            <ListItemText primary={bank.label} />
                                         </MenuItem>
                                     )
                                 }}
                                 >
-                                    {availableNetworks.map((network) => (
-                                        <MenuItem value={network} key={network.label}>
+                                    {availableBanks.map((bank) => (
+                                        <MenuItem value={bank} key={bank.label}>
                                             <ListItemIcon >
-                                                <Iconify icon={network.icon} />
+                                                <Iconify icon={bank.icon} />
 
                                             </ListItemIcon>
-                                            <ListItemText primary={network.label} />
+                                            <ListItemText primary={bank.label} />
 
                                         </MenuItem>
                                     ))}
                                 </Select>
                             </FormGroup>
+                           
                             <FormGroup>
-                                <FormLabel>{translate('transfer.coin')}</FormLabel>
-                                <Select size="small" value={coin} onChange={onChangeCoin} renderValue={(token) => {
-                                    return (
-                                        <MenuItem >
-                                            <ListItemIcon >
-                                                <Iconify icon={token.icon} />
-                                            </ListItemIcon>
-                                            <ListItemText primary={token.label} />
-                                        </MenuItem>
-                                    )
-                                }}
-                                >
-                                    {availableTokens.map((token) => (
-                                        <MenuItem value={token} key={token.label}>
-                                            <ListItemIcon >
-                                                <Iconify icon={token.icon} />
-
-                                            </ListItemIcon>
-                                            <ListItemText primary={token.label} />
-
-                                        </MenuItem>
-                                    ))}
-                                </Select>
+                                <FormLabel>{translate('transfer.account-number')}</FormLabel>
+                                <TextField label={''} size={'small'} />
                             </FormGroup>
                             <FormGroup>
-                                <FormLabel>{translate('transfer.url')}</FormLabel>
+                                <FormLabel>{translate('transfer.agency')}</FormLabel>
+                                <TextField label={''} size={'small'} />
+                            </FormGroup>
+                            <FormGroup>
+                                <FormLabel>{translate('transfer.account-owner')}</FormLabel>
                                 <TextField label={''} size={'small'} />
                             </FormGroup>
                             <FormGroup>
                                 <FormLabel>{translate('transfer.amount')}</FormLabel>
                                 <TextField label={''} size={'small'} />
                             </FormGroup>
+                            <Typography sx = {{color:'error.main'}}>{translate('transfer.bank-error-holder')}</Typography>
+                            <Typography>{translate('transfer.not-yet')}
+                            <Link to={'/profile/TAC'}>click here</Link>
+                            </Typography>
                         </Stack>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
