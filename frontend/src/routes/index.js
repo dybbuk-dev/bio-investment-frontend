@@ -121,7 +121,8 @@ export default function Router() {
       path: '/',
       element: <MainLayout />,
       children: [
-        { element: <HomePage />, index: true },
+        // { element: <HomePage />, index: true },
+        { element: <Navigate to="/auth/login" replace /> , index: true },
         { path: 'about-us', element: <About /> },
         { path: 'contact-us', element: <Contact /> },
         { path: 'faqs', element: <Faqs /> },
