@@ -87,7 +87,7 @@ export default function AppAsserts({ displayName }) {
                 <Box padding={2} >
                     <Icon icon="ic:outline-account-balance-wallet" />
                     <Typography gutterBottom variant="h4">
-                        Portfolio
+                        Current Wallet
                     </Typography>
                     <Stack direction={'row'} flexGrow={1} >
                         <ColorBarItem  color={'#F7931A'} sx = {{width:'40%'}} first/>

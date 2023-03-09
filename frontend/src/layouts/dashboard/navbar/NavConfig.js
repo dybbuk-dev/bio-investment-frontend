@@ -33,14 +33,13 @@ const navConfig = [
     subheader: 'general',
     items: [
       { title: 'home', path: PATH_DASHBOARD.general.app, icon: ICONS.dashboard },
-      { title: 'invite', path: PATH_DASHBOARD.general.link, icon: ICONS.gift },
-      { title: 'withdraw', path: PATH_DASHBOARD.transfer.withdraw, icon: ICONS.withdraw },
-      { title: 'deposit', path: PATH_DASHBOARD.transfer.deposit, icon: ICONS.deposit },
-      { title: 'my invest', path: PATH_DASHBOARD.transfer.invest, icon: ICONS.booking },
-
-      { title: 'profile', path: PATH_DASHBOARD.general.profile, icon: ICONS.profile },
       { title: 'token market', path: PATH_DASHBOARD.general.market, icon: ICONS.market },
-      { title: 'trading', path: PATH_DASHBOARD.general.trading, icon: ICONS.trading },
+      { title: 'token trading', path: PATH_DASHBOARD.general.trading, icon: ICONS.trading },
+      { title: 'deposit', path: PATH_DASHBOARD.transfer.deposit, icon: ICONS.deposit },
+      { title: 'withdraw', path: PATH_DASHBOARD.transfer.withdraw, icon: ICONS.withdraw },
+      { title: 'my invest', path: PATH_DASHBOARD.transfer.invest, icon: ICONS.booking },
+      { title: 'refer and win', path: PATH_DASHBOARD.general.link, icon: ICONS.gift },
+      { title: 'setting', path: PATH_DASHBOARD.general.profile, icon: ICONS.profile },
     
     ],
   },

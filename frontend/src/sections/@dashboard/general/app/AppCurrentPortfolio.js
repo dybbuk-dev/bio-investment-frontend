@@ -77,7 +77,7 @@ export default function AppCurrentPortfolio() {
 
   return (
     <Card>
-      <CardHeader title="Current Portfolio" />
+      <CardHeader title="Portfolio" />
       <CardContent>
         <Stack>
           <ReactApexChart type="donut" series={CHART_DATA} options={chartOptions} height={320} />
