@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkbio_invest_web=self.webpackChunkbio_invest_web||[]).push([[678],{19678:function(e,s,b){b.r(s);var i=b(40448);s.default=i.g}}]);
-//# sourceMappingURL=678.a7ec6787.chunk.js.map

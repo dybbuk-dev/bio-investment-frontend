@@ -1,5 +1,6 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 import { Box, Button, Card, CardContent, CardHeader, Container, Divider, Grid, InputAdornment, MenuItem, Select, Stack, TextField, Typography } from '@mui/material';
 // hooks
 import useAuth from '../../hooks/useAuth';
@@ -13,11 +14,13 @@ import Iconify from '../../components/Iconify';
 import { tokens } from '../../_mock/_tokens';
 import TradingTokenCard from '../../components/app/TradingTokenCard';
 
+
 export default function TradingTokens() {
     const { themeStretch } = useSettings();
     const { translate } = useLocales();
+    const navigate = useNavigate();
     const onCardAction = (token) => {
-
+        navigate(`/dashboard/trading-token/${token.id}`);
     }
     return (
         <Page title="Token Market">
@@ -69,7 +72,7 @@ export default function TradingTokens() {
                                         </Stack>
                                         <Divider />
                                         <Grid container>
-                                            {tokens.slice(0,6).map((token, index) => (
+                                            {tokens.slice(0, 6).map((token, index) => (
                                                 <Grid item xs={12} sm={6} md={4} key={index}>
                                                     <Box padding={1}>
                                                         <TradingTokenCard token={token} onCardAction={() => onCardAction(token)} />

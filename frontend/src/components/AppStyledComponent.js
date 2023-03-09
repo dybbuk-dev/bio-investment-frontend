@@ -1,12 +1,13 @@
 import { alpha, Button, TextField, Switch } from "@mui/material";
-import {styled} from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
 const GradientButtonStyle = styled(Button)(({ theme, disabled, }) => ({
     borderRadius: 8,
     padding: '10px',
     border: 'none',
     color: disabled ? '#ffffffa7' : 'white',
-    background: 'linear-gradient(296.69deg, #3D3393 8.3%, #2B76B9 35.59%, #2CACD1 63.24%, #35EB93 91.67%)',
+
+    background: disabled ? '#EFF8F3' : 'linear-gradient(296.69deg, #3D3393 8.3%, #2B76B9 35.59%, #2CACD1 63.24%, #35EB93 91.67%)',
 
 
 }));

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
-import { Radio, alpha, Box, Card, CardContent, CardHeader, Grid, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Link, Button, TextField, InputAdornment, MenuItem, Select } from "@mui/material";
+import { Radio, alpha, Box, Card, CardContent, CardHeader, Grid, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Link, Button, TextField, InputAdornment, MenuItem, Select, useTheme } from "@mui/material";
 import Image from "../../../components/Image";
 import SearchFilter from "../../../components/app/SearchFilter";
 import { fNumber } from "../../../utils/formatNumber";
@@ -19,6 +19,8 @@ export default function MyTokenCarousel({ tokens }) {
     const {translate} = useLocales();   
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedToken, setSelectedtoken] = useState(tokens.length > 0 ? tokens[0].id : null);
+    const theme = useTheme();
+    const background = theme.palette.mode === 'light' ? '#F2F2F2' : '#14141d'
     const settings2 = {
         dots: false,
         arrows: false,
@@ -35,10 +37,10 @@ export default function MyTokenCarousel({ tokens }) {
     }
 
     const onCardAction = (token) => {
-        navigate(`/dashboard/buy-token/${token.id}`);
+        // navigate(`/dashboard/buy-token/${token.id}`);
     }
     const onCardInternalAction = (token) => {
-        navigate(`/dashboard/buy-token/${token.id}`);
+        navigate(`/dashboard/my-token/${token.id}`);
     }
     return (
         <Stack gap ={2} mt={2}>
@@ -48,7 +50,7 @@ export default function MyTokenCarousel({ tokens }) {
             <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} justifyContent={'space-between'} padding ={2}>
                 <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} >
                     <Button sx={{ height: 56 }} variant='outlined' >{translate('words.all')}</Button>
-                    <SearchFilter variants={[{ label: 'option 1', id: 1 }, { label: 'option 2', id: 2 }]} />
+                    <SearchFilter backgroundColor={background} variants={[{ label: 'option 1', id: 1 }, { label: 'option 2', id: 2 }]} />
                 </Stack>
                 <Stack flexGrow={1}>
                     <TextField InputProps={{

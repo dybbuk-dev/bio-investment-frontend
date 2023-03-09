@@ -21,7 +21,7 @@ const MenuProps = {
 };
 
 
-export default function SearchFilter({variants}) {
+export default function SearchFilter({variants, backgroundColor = 'background.paper'}) {
   const [variantName, setVariantName] = React.useState([
   ]);
 
@@ -49,7 +49,7 @@ export default function SearchFilter({variants}) {
   return (
    
       <FormControl sx={{width: 240 }}>
-        <InputLabel sx ={{display:'flex', alignItems:'center', backgroundColor:'background.paper'}}>
+        <InputLabel sx ={{display:'flex', alignItems:'center', backgroundColor}}>
             <FilterAltOutlinedIcon />
             Group By
         </InputLabel>

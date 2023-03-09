@@ -111,14 +111,15 @@ export default function Login() {
 
             <LoginForm />
 
+            <Stack direction="row" justifyContent={'space-between'} alignItems={'center'} mt = {3}>
+              <Typography variant="body2" align="center">
+                Não possui sua conta?{' '}
 
-            <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-              Não possui sua conta?{' '}
+              </Typography>
               <Link variant="subtitle2" component={RouterLink} to={PATH_AUTH.register}>
                 Cadastre-se
               </Link>
-            </Typography>
-
+            </Stack>
           </ContentStyle>
           {mdUp &&
             <AuthImageList />

@@ -94,7 +94,8 @@ export const tokens = [
         buyers:65,
         limit:12345677,
         sold:2340,
-        image:'/tokens/token-1.png'
+        image:'/tokens/token-1.png',
+        companyDescription:'Com sólida participação no mercado de grãos, a cerealista controlada pelo Grupo Fictor dispõe de ampla experiência operacional na compra e venda de Commodities (milho, sorgo, café, soja etc) para o mercado interno. Atende, majoritariamente, as industrias de avicultura, bovina e de ração animal. Com mais de oito anos de operação e previsibilidade de lucro segura, sua rede de abastecimento movimenta atualmente mais de 1 milhão de sacas por mês junto a conceituados compradores. Com o mercado agro brasileiro em grande expansão, a Fictor deseja crescer ainda mais suas operações e abre a oportunidade para que você possa participar como sócio participante desta operação através de cotas tokenizadas, garantindo participação dos dividendos da operação.'
     },
     {
         id:'token-2',
