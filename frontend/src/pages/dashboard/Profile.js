@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate } from "react-router-dom";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import PermContactCalendarOutlinedIcon from '@mui/icons-material/PermContactCalendarOutlined';
 import DesktopWindowsOutlined from '@mui/icons-material/DesktopWindowsOutlined';
 import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
 import RestoreOutlinedIcon from '@mui/icons-material/RestoreOutlined';
@@ -29,7 +30,8 @@ import {
   TermAndCondition,
   AccountAccess,
   OrderHistory,
-  LimitInvest
+  LimitInvest,
+  InvestorProfile
 } from '../../sections/@dashboard/profile';
 import useResponsive from '../../hooks/useResponsive';
 import Scrollbar from '../../components/Scrollbar';
@@ -52,13 +54,15 @@ export default function Profile() {
   const ProfileMenus = [
     { value: 'basic', path: '/dashboard/profile/basic', icon: <PersonOutlineOutlinedIcon />, title: 'Basic Information' },
     { value: 'appear', path: '/dashboard/profile/appear', icon: <DesktopWindowsOutlined />, title: 'System Appearence' },
+    { value: 'invest-profile', path: '/dashboard/profile/investor-profile', icon: <PermContactCalendarOutlinedIcon />, title: 'Investor Profile' },
+
     { value: 'security', path: '/dashboard/profile/security', icon: <VerifiedUserOutlinedIcon />, title: 'Account Security' },
     { value: 'order-history', path: '/dashboard/profile/order-history', icon: <RestoreOutlinedIcon />, title: 'Order History' },
     { value: 'timezone', path: '/dashboard/profile/timezone', icon: <PublicOutlinedIcon />, title: 'Time Zone' },
     { value: 'notification', path: '/dashboard/profile/notification', icon: <NotificationsOutlinedIcon />, title: 'Notification' },
     { value: 'TAC', path: '/dashboard/profile/TAC', icon: <ArticleOutlinedIcon />, title: 'Terms and conditions' },
-    { value: 'invest-agree', path: '/dashboard/profile/invest-agree', icon: <Icon icon = "arcticons:timelimit"/>, title: 'Investment Limit' },
-    { value: 'account-access', path: '/dashboard/profile/account-access', icon: <Icon icon = "mdi:account-security-outline"/>, title: 'Account Access' },
+    { value: 'invest-agree', path: '/dashboard/profile/invest-agree', icon: <Icon icon="arcticons:timelimit" />, title: 'Investment Limit' },
+    { value: 'account-access', path: '/dashboard/profile/account-access', icon: <Icon icon="mdi:account-security-outline" />, title: 'Account Access' },
   ]
 
 
@@ -66,7 +70,7 @@ export default function Profile() {
     <Page title="Profile">
       <Container maxWidth={themeStretch ? false : 'xl'} sx={{ padding: 2 }}>
         <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} gap={2}>
-          <Box sx={{minWidth:{ xs: '100%', sm: '100%', md: '260px' }, width: { xs: '100%', sm: '100%', md: '260px' }, background: theme.palette.background.paper }} padding={2} borderRadius={1}>
+          <Box sx={{ minWidth: { xs: '100%', sm: '100%', md: '260px' }, width: { xs: '100%', sm: '100%', md: '260px' }, background: theme.palette.background.paper }} padding={2} borderRadius={1}>
             {isTablet &&
               <Scrollbar>
                 <List>
@@ -114,6 +118,7 @@ export default function Profile() {
             {page === "TAC" && <TermAndCondition />}
             {page === "invest-agree" && <LimitInvest />}
             {page === "account-access" && <AccountAccess />}
+            {page === "investor-profile" && <InvestorProfile />}
 
           </Box>
         </Stack>

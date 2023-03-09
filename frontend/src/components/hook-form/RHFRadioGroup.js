@@ -8,13 +8,12 @@ import { Radio, RadioGroup, FormHelperText, FormControlLabel } from '@mui/materi
 
 RHFRadioGroup.propTypes = {
   name: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.string),
+  options: PropTypes.arrayOf(PropTypes.any),
   getOptionLabel: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default function RHFRadioGroup({ name, options, getOptionLabel, ...other }) {
   const { control } = useFormContext();
-
   return (
     <Controller
       name={name}
@@ -22,16 +21,18 @@ export default function RHFRadioGroup({ name, options, getOptionLabel, ...other 
       render={({ field, fieldState: { error } }) => (
         <div>
           <RadioGroup {...field} row {...other}>
-            {options.map((option, index) => (
-              <FormControlLabel
-                key={option}
-                value={option}
+            {options.map((option, index) => {
+              return(
+                <FormControlLabel
+                key={option?.id || option}
+                value={option?.value || option}
                 control={
                   <Radio />
                 }
-                label={getOptionLabel?.length ? getOptionLabel[index] : option}
+                label={getOptionLabel?.length ? getOptionLabel[index] : (option?.label || option)}
               />
-            ))}
+              )
+            })}
           </RadioGroup>
 
           {!!error && (
