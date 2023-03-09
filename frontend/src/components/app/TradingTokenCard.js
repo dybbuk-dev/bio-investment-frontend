@@ -19,7 +19,7 @@ export default function TradingTokenCard({ token, onCardAction = () => { }, acti
                     </Stack>
                     <Stack gap={1} sx={{ textAlign: 'right' }}>
                         <Typography variant={'h6'}>{fNumber(token.price)}</Typography>
-                        <Typography variant={'body2'} color={theme.palette.success.main}>{fNumber(token.profitPerMonth)}</Typography>
+                        <Typography variant={'body2'} color={theme.palette.success.main}>{fNumber(token.profitPerMonth)}% per monthly</Typography>
                     </Stack>
 
 

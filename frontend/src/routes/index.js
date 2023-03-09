@@ -48,6 +48,22 @@ export default function Router() {
           ),
         },
         {
+          path: 'agree-investment',
+          element: (
+            <GuestGuard>
+              <InvestLimitAgree />
+            </GuestGuard>
+          ),
+        },
+        {
+          path: 'agree-term',
+          element: (
+            <GuestGuard>
+              <TermAndConditionAgree />
+            </GuestGuard>
+          ),
+        },
+        {
           path: 'register-primary',
           element: (
             <GuestGuard>
@@ -147,6 +163,8 @@ const ChooseRegisterMode = Loadable(lazy(() => import('../pages/auth/ChooseRegis
 const PersonalMode = Loadable(lazy(() => import('../pages/auth/PersonalMode')));
 const LegalMode = Loadable(lazy(() => import('../pages/auth/LegalMode')));
 const BusinessMode = Loadable(lazy(() => import('../pages/auth/BusinessMode')));
+const InvestLimitAgree = Loadable(lazy(() => import('../pages/auth/InvestLimitAgree')));
+const TermAndConditionAgree = Loadable(lazy(() => import('../pages/auth/TermConditionAgree')));
 
 const ResetPassword = Loadable(lazy(() => import('../pages/auth/ResetPassword')));
 const VerifyCode = Loadable(lazy(() => import('../pages/auth/VerifyCode')));

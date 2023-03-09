@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // form
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,6 +15,7 @@ import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFCheckbox, RHFTextField } from '../../../components/hook-form';
 import useLocales from '../../../hooks/useLocales';
 
+
 // ----------------------------------------------------------------------
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -21,7 +23,7 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 export default function RegisterForm({ mode }) {
   const { translate } = useLocales();
   const { register } = useAuth();
-
+  const navigate = useNavigate();
   const isMountedRef = useIsMountedRef();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -66,15 +68,17 @@ export default function RegisterForm({ mode }) {
   } = methods;
 
   const onSubmit = async (data) => {
-    try {
-      await register(data);
-    } catch (error) {
-      console.error(error);
-      reset();
-      if (isMountedRef.current) {
-        setError('afterSubmit', error);
-      }
-    }
+    navigate('/auth/agree-investment');
+    
+    // try {
+    //   await register(data);
+    // } catch (error) {
+    //   console.error(error);
+    //   reset();
+    //   if (isMountedRef.current) {
+    //     setError('afterSubmit', error);
+    //   }
+    // }
   };
 
   return (

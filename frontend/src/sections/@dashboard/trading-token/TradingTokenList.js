@@ -1,4 +1,6 @@
 import { Box, Card, CardContent, CardHeader, Grid, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { Icon } from "@iconify/react";
+
 import Image from "../../../components/Image";
 import SearchFilter from "../../../components/app/SearchFilter";
 import { fNumber } from "../../../utils/formatNumber";
@@ -59,11 +61,11 @@ const tokens = [
 export default function TradingTokenList() {
     return (
         <Card>
-            
+
             <CardContent>
-                <Stack direction = {{xs:'column', sm:'row'}} gap = {2} mb={2} justifyContent={'space-between'} alignItems={{xs:'flex-start', sm:'center'}}>
+                <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} mb={2} justifyContent={'space-between'} alignItems={{ xs: 'flex-start', sm: 'center' }}>
                     <Typography variant="h5">Treding</Typography>
-                    <SearchFilter variants={[{id:1, label:'option1'}]}/>
+                    <SearchFilter variants={[{ id: 1, label: 'option1' }]} />
                 </Stack>
                 <Grid container >
                     <Grid item sm={12} md={6}>
@@ -94,16 +96,23 @@ export default function TradingTokenList() {
                                                 <Typography variant="body1">{token.collection}</Typography>
                                             </TableCell>
                                             <TableCell>
-                                                {fNumber(token.min)}
+                                                BRL {fNumber(token.min)}
                                             </TableCell>
                                             <TableCell>
-                                                {fNumber(token.volumn)}
+                                                <Stack >
+                                                    {fNumber(token.volumn)}
+                                                    <Typography sx={{ display: 'flex', gap: 1, alignItems: 'center', color: 'primary.main' }} >
+                                                        <Icon icon="eva:trending-up-fill" />
+                                                        +11%
+                                                    </Typography>
+                                                </Stack>
+
                                             </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
                             </Table>
-                         </TableContainer>
+                        </TableContainer>
 
                     </Grid>
                     <Grid item sm={12} md={6}>
@@ -134,10 +143,16 @@ export default function TradingTokenList() {
                                                 <Typography variant="body1">{token.collection}</Typography>
                                             </TableCell>
                                             <TableCell>
-                                                {fNumber(token.min)}
+                                                BRL {fNumber(token.min)}
                                             </TableCell>
                                             <TableCell>
-                                                {fNumber(token.volumn)}
+                                                <Stack >
+                                                    {fNumber(token.volumn)}
+                                                    <Typography sx={{ display: 'flex', gap: 1, alignItems: 'center', color: 'primary.main' }} >
+                                                        <Icon icon="eva:trending-up-fill" />
+                                                        +11%
+                                                    </Typography>
+                                                </Stack>
                                             </TableCell>
                                         </TableRow>
                                     ))}

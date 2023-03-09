@@ -38,39 +38,33 @@ export default function BuyTokenInformation({token}){
                         <Typography color="text.secondary" variant="body2">{translate('market.ann-quota')}
                         </Typography>
                         <Typography variant="subtitle2">
-                            {fNumber(token?.profitPerMonth)}
+                            Single Phase
                         </Typography>
                     </Box>
                     <Box>
                         <Typography color="text.secondary" variant="body2">{translate('market.token-dur')}
                         </Typography>
                         <Typography variant="subtitle2">
-                            {fNumber(token?.buyers)}
-                        </Typography>
-                    </Box>
-                    <Box>
-                        <Typography color="text.secondary" variant="body2">{translate('market.acc-fund')}
-                        </Typography>
-                        <Typography variant="subtitle2">
-                            {fNumber(token?.captured)}
+                            3 Years
                         </Typography>
                     </Box>
                     <Box>
                         <Typography color="text.secondary" variant="body2">{translate('market.token-cat')}
                         </Typography>
                         <Typography variant="subtitle2">
-                            {fNumber(token?.id)}
+                            Participation
                         </Typography>
                     </Box>
+                   
                 </Stack>
                 <Stack gap={2} justifyContent={'space-between'} direction="row">
                     <BackgroundLabelStyled sx={{ flexGrow: 1 }}>
                         <Typography>{translate('translate.mon-quota')}</Typography>
-                        <Typography color={'blue'}>{fNumber(token?.profitPerMonth)}</Typography>
+                        <Typography color={'blue'}>{fNumber(token?.profitPerMonth)} % p.m</Typography>
                     </BackgroundLabelStyled>
                     <BackgroundLabelStyled sx={{ flexGrow: 1 }}>
                         <Typography>{translate('market.ann-quota')}</Typography>
-                        <Typography color={'blue'}>{fNumber(token?.profitPerMonth)}</Typography>
+                        <Typography color={'blue'}>{fNumber(token?.profitPerMonth)} % p.y</Typography>
                     </BackgroundLabelStyled>
                 </Stack>
             </CardContent>

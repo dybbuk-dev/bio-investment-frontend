@@ -112,6 +112,7 @@ export default function Profile() {
             {page === "order-history" &&
               <OrderHistory />
             }
+            {page === 'timezone' && <ChangeTimezone />}
             {page === "notification" &&
               <ChangeNotification />
             }

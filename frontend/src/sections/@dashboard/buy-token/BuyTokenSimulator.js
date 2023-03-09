@@ -27,13 +27,13 @@ export default function BuyTokenSimulator({token}) {
                     <Stack gap={2} justifyContent={'space-between'} direction={{ xs: 'column', sm: 'row' }}>
                         <BackgroundLabelStyled sx={{ flexGrow: 1, height: 84 }}>
                             <Typography>{translate('market.sim-mon-title')}</Typography>
-                            <Typography variant='h5'>{fNumber(token?.profitPerMonth)}</Typography>
-                            <Typography color={theme.palette.success.main}>{fNumber(token?.profitPerMonth)}</Typography>
+                            <Typography variant='h6'>BR${fNumber(token?.limit)} </Typography>
+                            <Typography color={theme.palette.success.main}>{fNumber(token?.profitPerMonth)}% per month</Typography>
                         </BackgroundLabelStyled>
                         <BackgroundLabelStyled sx={{ flexGrow: 1, height: 84 }}>
                             <Typography>{translate('market.sim-ann-title')}</Typography>
-                            <Typography variant='h5'>{fNumber(token?.profitPerMonth)}</Typography>
-                            <Typography color={theme.palette.success.main}>{fNumber(token?.profitPerMonth)}</Typography>
+                            <Typography variant='h6'>BR$ {fNumber(token?.limit)} </Typography>
+                            <Typography color={theme.palette.success.main}>{fNumber(token?.profitPerMonth)}% per year</Typography>
                         </BackgroundLabelStyled>
                     </Stack>
                 </CardContent>

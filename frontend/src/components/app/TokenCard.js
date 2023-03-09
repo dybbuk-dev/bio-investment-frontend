@@ -1,11 +1,13 @@
-import { Box, Card, CardContent, Divider, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Button, Card, CardContent, Divider, Stack, Typography, useTheme } from "@mui/material";
+import useLocales from "../../hooks/useLocales";
 import { fNumber } from "../../utils/formatNumber";
 import Image from "../Image";
 
 export default function TokenCard({ token, onCardAction = () => { } }) {
     const theme = useTheme();
+    const {translate} = useLocales();
     return (
-        <Card onClick={onCardAction} sx = {{cursor:'pointer'}}>
+        <Card onClick={onCardAction} sx={{ cursor: 'pointer' }}>
             <CardContent sx={{ p: 0 }}>
                 <Box >
                     <Image alt={'token-image'} src={token.image} />
@@ -23,7 +25,7 @@ export default function TokenCard({ token, onCardAction = () => { } }) {
 
                 </Stack>
                 <Divider sx={{ mx: 1 }} />
-                <Stack direction="row" justifyContent={'space-between'} padding={1}>
+                <Stack mb={2} direction="row" justifyContent={'space-between'} padding={1}>
                     <Stack gap={1}>
                         <Typography variant={'body2'} color={'text.secondary'}>Captured</Typography>
                         <Typography variant={'body2'} color={'text.secondary'}>Inverstors</Typography>
@@ -36,6 +38,9 @@ export default function TokenCard({ token, onCardAction = () => { } }) {
                     </Stack>
 
 
+                </Stack>
+                <Stack padding={1} alignItems="center">
+                    <Button onClick={onCardAction}>{translate('t.See Offer')}</Button>
                 </Stack>
             </CardContent>
         </Card>

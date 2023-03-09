@@ -1,10 +1,13 @@
-import { Card, CardContent, CardHeader, Divider, FormGroup, FormLabel, Grid, ListItemIcon, ListItemText, MenuItem, Paper, Select, Stack, TextField, Typography, useTheme } from "@mui/material";
+import { Card, CardContent, CardHeader, Checkbox, Divider, FormControlLabel, FormGroup, FormLabel, Grid, ListItemIcon, ListItemText, MenuItem, Paper, Select, Stack, TextField, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
+
 import { useMemo, useState } from "react";
 import { fNumber } from "../../../utils/formatNumber";
 import Iconify from "../../../components/Iconify";
 import useLocales from "../../../hooks/useLocales";
 import { GradientButtonStyle } from "../../../components/AppStyledComponent";
+
 
 
 
@@ -22,10 +25,10 @@ export default function BankDeposit() {
                 label: 'JP Bank',
                 icon: 'maki:bank-jp'
             },
-           
+
         ]
     }, []);
-   
+
     const onChangeBank = (evt) => {
         setBank(evt.target.value);
     }
@@ -61,7 +64,7 @@ export default function BankDeposit() {
                                     ))}
                                 </Select>
                             </FormGroup>
-                           
+
                             <FormGroup>
                                 <FormLabel>{translate('transfer.account-number')}</FormLabel>
                                 <TextField label={''} size={'small'} />
@@ -78,15 +81,26 @@ export default function BankDeposit() {
                                 <FormLabel>{translate('transfer.amount')}</FormLabel>
                                 <TextField label={''} size={'small'} />
                             </FormGroup>
-                            <Typography sx = {{color:'error.main'}}>{translate('transfer.bank-error-holder')}</Typography>
+                            <FormGroup>
+                                <FormLabel>{translate('transfer.bank-name')}</FormLabel>
+                                <FormControlLabel sx = {{ml:-0.2, pl:1, borderRadius:1, backgroundColor:(theme.palette.mode === 'light'?'grey.200':'grey.800')}} labelPlacement="start"
+                                    control={<Checkbox defaultChecked />} label={
+                                        <Typography sx={{flexGrow:1, display: 'flex', gap: 1, alignItems: 'center' }}>
+                                            <Icon icon="ic:baseline-pix" />
+                                            PIX
+                                        </Typography>
+                                    } />
+
+                            </FormGroup>
+                            <Typography sx={{ color: 'error.main' }}>{translate('transfer.bank-error-holder')}</Typography>
                             <Typography>{translate('transfer.not-yet')}
-                            <Link to={'/profile/TAC'}>click here</Link>
+                                <Link to={'/profile/TAC'}>click here</Link>
                             </Typography>
                         </Stack>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6}>
                         <Stack gap={2} sx={{ backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[800], borderRadius: 1 }} padding={2}>
-                            <Stack justifyContent={'center'} alignItems={'center'} padding = {4}>
+                            <Stack justifyContent={'center'} alignItems={'center'} padding={4}>
                                 <Iconify icon="clarity:qr-code-line" sx={{ height: 148, width: 148 }} />
                             </Stack>
 

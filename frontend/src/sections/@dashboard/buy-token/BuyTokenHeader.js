@@ -35,8 +35,8 @@ export default function BuyTokenHeader({token}) {
                     </Stack>
                     <Stack direction="row" gap={2} mb={2}>
                         <Box>
-                            <Typography variant='subtitle2' sx={{ mb: 1 }}>Price (unit)</Typography>
-                            <Label sx={{ height: 48, width: 84 }}>{token?.price}</Label>
+                            <Typography variant='subtitle2' sx={{ mb: 0.7 }}>Price (unit)</Typography>
+                            <Label sx={{ height: 40, width: 84 }}>{token?.price}</Label>
                         </Box>
                         <Box>
                             <Typography sx={{ textAlign: 'center' }}>Amount</Typography>

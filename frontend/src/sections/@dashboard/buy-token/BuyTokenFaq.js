@@ -11,7 +11,7 @@ export default function BuyTokenFaq() {
         setExpanded(isExpanded ? panel : false);
     };
     return (
-        <Stack gap={2} alignItems={'center'} py={2}>
+        <Stack gap={2} >
             <Typography variant="h5">
                 FAQs 📣
             </Typography>
